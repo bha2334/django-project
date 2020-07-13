@@ -1,0 +1,27 @@
+<div class="group">
+<form action="{% url 'edit' %}" method="post">{% csrf_token %}
+    
+    <div class="group">
+        <div class="group">
+            <input type="text" name="username"><span class="highlight"></span><span class="bar"></span>
+            <label>username</label>
+          </div>
+          <div class="group">
+            <input type="email" name="email"><span class="highlight"></span><span class="bar"></span>
+            <label>Email</label>
+        <input type="number" name="phone" ><span class="highlight"></span><span class="bar"></span>
+        <label>PhoneNumber</label>
+      </div>
+      <div class="group">
+        <input type="number" name="age" ><span class="highlight"></span><span class="bar"></span>
+        <label>Age</label>
+      </div>
+      <button type="submit" class="button buttonBlue">Done
+        <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+      </button>
+        
+            
+       
+    
+</form>
+</div>

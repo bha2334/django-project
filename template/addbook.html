@@ -1,0 +1,23 @@
+<html>
+    <body>
+        <h1>add book</h1>
+        <form method="POST" action="{% url 'add' %}">
+         {% csrf_token %}
+            <div class="group">
+                <input type="text" name="bookname"><span class="highlight"></span><span class="bar"></span>
+                <label>booktittle</label>
+              </div>
+            <div class="group">
+                <input type="text" name="authorname"><span class="highlight"></span><span class="bar"></spa n>
+                <label>Author name</label>
+            </div>
+        
+        <button type="submit" class="button buttonBlue">Add
+          <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+        </button>
+    </form>
+    <a href="{% url 'show' %}">Home</a>
+    {% csrf_token %}
+        
+    </body>
+</html>

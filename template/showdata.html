@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <h2>your Data</h2>
+    </head>
+    <body>
+        {% for d in data %}
+        <h2>Name : {{d.uname}}</h2>
+        <h3>Phone Number : {{ d.phone_num}}</h3>
+        <h3>Age : {{ d.age}}</h3>
+        <h3>email : {{ d.email}}</h3>
+        <a href="{% url 'edit'%}">Edit your details</a>
+        <a href="{% url 'show'%}">Back to your profile</a>
+
+        {% endfor %}
+    </body>
+</html>

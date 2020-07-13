@@ -1,0 +1,42 @@
+<html>
+    <body>
+        <hgroup>
+    <h1>Register here!!</h1>
+    {% if error %}
+    <h3>{{ error}}</h3>
+    {% endif %}
+    
+  </hgroup>
+  <form method="POST" action="{% url 'signup' %}">
+    {% csrf_token %}
+    <div class="group">
+      <input type="text" name="username"><span class="highlight"></span><span class="bar"></span>
+      <label>username</label>
+    </div>
+    <div class="group">
+      <input type="email" name="email"><span class="highlight"></span><span class="bar"></span>
+      <label>Email</label>
+    </div>
+    <div class="group">
+      <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required><span class="highlight"></span><span class="bar"></span>
+      <label>Password</label>
+    </div>
+    <div class="group">
+      <input type="password" name="confirmpassword"><span class="highlight"></span><span class="bar"></span>
+      <label>Confirm password</label>
+    </div>
+    <div class="group">
+      <input type="number" name="phone" ><span class="highlight"></span><span class="bar"></span>
+      <label>PhoneNumber</label>
+    </div>
+    <div class="group">
+      <input type="number" name="age" ><span class="highlight"></span><span class="bar"></span>
+      <label>Age</label>
+    </div>
+    <button type="submit" class="button buttonBlue">Register
+      <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+    </button>
+    <a href="{% url 'login' %}">try login in</a>
+  </form>
+  </body>
+  </html>

@@ -1,0 +1,29 @@
+<html>
+    <body>
+<hgroup>
+    <h1>Please Login or Sign up</h1>
+    <h3>Trouble accesing your account?</h3>
+    {% if error  %}
+    <h4>{{ error }} </h4>
+    {% endif %}
+  </hgroup>
+  <form method ="POST" action= "{% url 'login' %}" >
+    {% csrf_token %}
+    <a href="{% url 'signup' %}">Create an account</a>
+    
+    <div class="group">
+      <input type="text" name="username"><span class="highlight"></span><span class="bar"></span>
+      <label>username</label>
+    </div>
+    <div class="group">
+      <input type="password"m name="password"><span class="highlight"></span><span class="bar"></span>
+      <label>Password</label>
+    </div>
+    <button type="submit" class="button buttonBlue">Login !
+      <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+    </button>
+    
+  </form>
+  
+</body>
+  </html>
