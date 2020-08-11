@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path,include
 from accounts.views import home
 from accounts import urls
-from mydata.views import show,add
+from mydata.views import show,add,showall
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +25,6 @@ urlpatterns = [
     path('accounts/',include('accounts.urls')),
     path('show/',show,name="show"),
     path('add/',add,name="add"),
+    path('showall/',showall,name="showall"),
+
 ]

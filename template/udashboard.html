@@ -1,17 +1,26 @@
 <html>
-   
+   <head>
+       <meta charset="UTF-8">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 2.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel = "stylesheet"
+    href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+    </script>    
+   </head>
     <body>
-        <h1>User's detail</h1>
-        <a href="{% url 'display'%}">your data</a>
+        <h3>User's detail</h3> <a class="waves-effect waves-light btn red" href="{% url 'logout'%}">Logout</a>
+        <a class="waves-effect waves-light btn green" href="{% url 'display'%}">your data</a>
+        <a class="waves-effect waves-light btn green" href="{% url 'showall'%}">watch what others's have in their store</a>
         
         <a class="waves-effect waves-light btn green" href="{% url 'add'%}">Add books</a>
-        <h3>Your library</h3>
-        <a href="{% url 'logout'%}">Logout</a>
+        <h4>Your library</h4>
+        
 
         {% for mems in m%}
         <div class="blue-text">Books added on date :{{mems.date}}</div>
-        <h3 class="red-text"> Book name :{{mems.content}}</div>
-        <h3 class="red-text"> Book author: {{mems.author}}</div>
+        <h5 class="red-text"> Book name :{{mems.content}} Book author: {{mems.author}}</div>
+        
 
         {% endfor%}
     </body>

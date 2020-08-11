@@ -1,23 +1,56 @@
 <html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
+    <title>Document</title>
+
+    <style>
+        .contain {
+            padding: 50px 0px;
+	text-align: center;
+	width: 50%;
+	margin: 0 auto;
+}
+    </style>
+
+</head>
     <body>
-        <h1>add book</h1>
-        <form method="POST" action="{% url 'add' %}">
-         {% csrf_token %}
-            <div class="group">
-                <input type="text" name="bookname"><span class="highlight"></span><span class="bar"></span>
-                <label>booktittle</label>
-              </div>
-            <div class="group">
-                <input type="text" name="authorname"><span class="highlight"></span><span class="bar"></spa n>
-                <label>Author name</label>
-            </div>
         
-        <button type="submit" class="button buttonBlue">Add
-          <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+        <div class=contain>
+          <h1>Add book</h1>
+        <div class="row">
+        <form class="col s12" method="POST" action="{% url 'add' %}">
+         {% csrf_token %}
+         <div class="row">
+          <div class="input-field col s12">
+            <textarea id="textarea1" name="data" class="materialize-textarea"></textarea>
+            <label for="textarea1">Book Tittle ?</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="textarea1" name="data" class="materialize-textarea"></textarea>
+            <label for="textarea1">Book Author</label>
+          </div>
+        </div>
+        
+        <button class="waves-effect waves-light btn red darken-3" type="submit" >Add
         </button>
     </form>
-    <a href="{% url 'show' %}">Home</a>
+    </div>
+    <br> 
+    <a class="waves-effect waves-light btn green" href="{% url 'show' %}">Home</a>
     {% csrf_token %}
+    </div>
+    
+   
         
     </body>
 </html>

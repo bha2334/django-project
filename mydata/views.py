@@ -18,3 +18,7 @@ def add(request):
     else:
         return render(request,'addbook.html')
 
+def showall(request):
+    mylib=library.objects.all()
+    return render(request,'showall.html',{'m':mylib})
+
