@@ -15,16 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.conf import settings
 from accounts.views import home
 from accounts import urls
-from mydata.views import show,add,showall
+from mydata.views import show,upload,showall
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home),
     path('accounts/',include('accounts.urls')),
     path('show/',show,name="show"),
-    path('add/',add,name="add"),
+    path('upload/',upload,name="upload"),
     path('showall/',showall,name="showall"),
 
 ]
+

@@ -9,11 +9,27 @@
      </script>    
     </head>
     <body>
-        <h3>Everyone's data</h3>
-        {% for mems in m%}
-       
-        <h5 class="red-text"> Book name :{{mems.content}} , Book author: {{mems.author}}</div>
+        <h3>Your uploaded Files</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                <th> Tittle</th>
+                <th>File</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for mems in m%}
+                <tr>
+                    <td>{{mems.tittle}}</td>
+                    <td><a href="{{mems.pdf.url}}" class=" btn btn-primary btn-sa">Download</a>
+                        
+                    </td>
+                </tr>
+                
         
-        {% endfor%}
+                {% endfor%}
+            </tbody>
+        </table>
+        
     </body>
 </html>

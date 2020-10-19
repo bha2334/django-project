@@ -1,24 +1,25 @@
-from django.shortcuts import render
-from .models import library
+from django.shortcuts import render,redirect
+from .models import library, sfile
 from django.contrib.auth.models import User
 
+from .forms import BookForm
 # Create your views here.
 def show(request):
     log_user= request.user
     mylib=library.objects.filter(user=log_user)
     return render(request, 'udashboard.html',{'m':mylib}) 
 
-def add(request):
+def upload(request):
     if request.method=='POST':
-        data= request.POST['bookname']
-        author=request.POST['authorname']
-        new= library(content=data,author=author,user=request.user)
-        new.save()
-        return render(request,'addbook.html')
+        form= BookForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+        return redirect('showall')
     else:
-        return render(request,'addbook.html')
+        form=BookForm
+        return render(request,'upload.html',{'form':form})
 
 def showall(request):
-    mylib=library.objects.all()
+    mylib=sfile.objects.all()
     return render(request,'showall.html',{'m':mylib})
 
